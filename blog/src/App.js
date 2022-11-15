@@ -22,7 +22,7 @@ function App(){
         글제목변경(copy);
       }}>글 수정</button>
 
-      <div className="list">
+      {/* <div className="list">
         <h4>{글제목[0]} <span onClick={() => {좋아요늘리기(좋아요+1)}}>👍</span> {좋아요} </h4>
         <p>2월 17일 발행</p>
       </div>
@@ -33,7 +33,18 @@ function App(){
       <div className="list">
         <h4 onClick={()=>{ setmodal(true) }}>{글제목[2]}</h4>
         <p>2월 17일 발행</p>
-      </div>
+      </div> */}
+
+      {
+        글제목.map(function(a, i){
+          return(
+            <div className="list" key={i}>
+              <h4 onClick={()=>{ setmodal(true) }}>{ 글제목[i] }</h4>
+              <p>2월 17일 발행</p>
+            </div>
+          )
+        })
+      }
 
       {
         modal == true ? <Modal/> : null
