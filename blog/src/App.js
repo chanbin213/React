@@ -9,6 +9,7 @@ function App(){
   let posts = '우동 맛집';
   let [글제목, 글제목변경] = useState(['코트 추천','맛집 추천', '관광 추천']);
   let [좋아요,좋아요늘리기] = useState(0);
+  let [modal, setmodal] = useState(false);
 
   return (
     <div className="App">
@@ -30,11 +31,13 @@ function App(){
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
-        <h4>{글제목[2]}</h4>
+        <h4 onClick={()=>{ setmodal(true) }}>{글제목[2]}</h4>
         <p>2월 17일 발행</p>
       </div>
 
-      <Modal/>
+      {
+        modal == true ? <Modal/> : null
+      }
 
     </div>
   );
